@@ -1,7 +1,7 @@
 {
   "name": "vue-input-dropdown",
   "description": "A simple to use, highly customizable input dropdown component for Vue",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": {
     "name": "cgberlin",
     "email": "codyberlin@gmail.com"
@@ -9,7 +9,11 @@
   "keywords": [
     "vue",
     "vuejs",
-    "plugin"
+    "plugin",
+    "dropdown",
+    "input dropdown",
+    "input",
+    "picker"
   ],
   "license": "MIT",
   "main": "dist/vue-input-dropdown.common.js",
