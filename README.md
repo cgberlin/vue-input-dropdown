@@ -19,7 +19,7 @@ npm install --save vue-input-dropdown
 
 ## Default import
 
-Install all the components:
+Install all the components (theres just one for now):
 
 ```javascript
 import Vue from 'vue'
@@ -27,14 +27,6 @@ import VueInputDropdown from 'vue-input-dropdown'
 
 Vue.use(VueInputDropdown)
 ```
-
-Use specific components:
-
-```javascript
-import Vue from 'vue'
-import { Test } from 'vue-input-dropdown'
-
-Vue.component('test', Test)
 ```
 
 **⚠️ A css file is included when importing the package. You may have to setup your bundler to embed the css in your page.**
@@ -50,14 +42,6 @@ import VueInputDropdown from 'vue-input-dropdown/dist/vue-input-dropdown.common'
 Vue.use(VueInputDropdown)
 ```
 
-Use specific components:
-
-```javascript
-import 'vue-input-dropdown/dist/vue-input-dropdown.css'
-import { Test } from 'vue-input-dropdown/dist/vue-input-dropdown.common'
-
-Vue.component('test', Test)
-```
 
 **⚠️ You may have to setup your bundler to embed the css file in your page.**
 
@@ -78,12 +62,6 @@ Install all the components:
 Vue.use(VueInputDropdown)
 ```
 
-Use specific components:
-
-```javascript
-Vue.component('test', VueInputDropdown.Test)
-```
-
 ## Source import
 
 Install all the components:
@@ -99,9 +77,9 @@ Use specific components:
 
 ```javascript
 import Vue from 'vue'
-import { Test } from 'vue-input-dropdown/src'
+import { VueInputDropdown } from 'vue-input-dropdown/src'
 
-Vue.component('test', Test)
+Vue.component('vue-input-dropdown', VueInputDropdown)
 ```
 
 **⚠️ You need to configure your bundler to compile `.vue` files.** More info [in the official documentation](https://vuejs.org/v2/guide/single-file-components.html).
@@ -116,7 +94,11 @@ Vue.component('test', Test)
 
 ---
 
-# Plugin Development
+# Plugin Development (feel free to create pull requests and I'll look over them)
+
+> TODO: 
+    - CREATE PROPER DEV ENVIRONMENT TO TEST USAGE AND IMPORTS
+    - EDIT ESLINT OR JUST REMOVE 
 
 ## Installation
 
