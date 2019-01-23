@@ -21,12 +21,12 @@ npm install --save vue-input-dropdown
 
 Install all the components (theres just one for now):
 
-```javascript
+```javascript```
 import Vue from 'vue'
 import VueInputDropdown from 'vue-input-dropdown'
 
 Vue.use(VueInputDropdown)
-```
+
 ```
 
 **⚠️ A css file is included when importing the package. You may have to setup your bundler to embed the css in your page.**
