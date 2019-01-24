@@ -3,6 +3,7 @@
   <div v-on-clickaway="closePicker" :class="[outerContainerClass]" :style="options['outerContainerStyle']">
     <input :style="[{height:options['height'],width:options['width']},options['inputStyle']]"
            :class="[inputClass]"
+           :autocomplete="options['autocomplete']"
            @blur="inputBlurCheck"
            @click="inputClicked"
            v-model="selectedItem" 
@@ -47,7 +48,7 @@
     created() {
       let { selected, items } = this
       this.selectedItem = selected
-      this.itemList = items.filter(item => { return ~item.indexOf(selected)})
+      this.itemList = items
     },
     data() {
       return {
@@ -68,7 +69,7 @@
         'selectedItem': {
           handler: function(to, from) {
             let { items } = this
-            this.itemList = items.filter(item => { return ~item.indexOf(to)})
+            this.itemList = items.filter(item => { return ~item.toLowerCase().indexOf(to.toLowerCase())})
           }
         }
     },
@@ -116,12 +117,13 @@
     },
     methods: {
       inputClicked(e) {
-        let { isOpen } = this
+        let { isOpen, items } = this
         if (!isOpen) {
           this.isOpen = true
           let { x, y } = this.getPos(e.target)
           this.x = x.toString() + 'px'
           this.y = y.toString() + 'px'
+          this.itemList = items
         }
       },
       itemPicked(item) {
@@ -146,10 +148,10 @@
           return  
         }
         if (len <= 0 || options['forceSelect']) return
-        itemList = items.filter(item => { return ~item.indexOf(selectedItem)})
+        itemList = items.filter(item => { return ~item.toLowerCase().indexOf(selectedItem.toLowerCase())})
         if (itemList.length <= 0) this.selectedItem = ""
         else {
-          this.itemList = itemList
+          this.itemList = items
           this.selectedItem = itemList[0]
           this.picked(itemList[0])
         }
