@@ -86,7 +86,38 @@ Vue.component('vue-input-dropdown', VueInputDropdown)
 
 # Usage
 
-> TODO
+### props
+
+| Prop          | Default/Required | Example                   | Type/Description                           |
+| ------------- |:----------------:| -------------------------:| ------------------------------------------:|
+| items         | None/REQUIRED    | :items="['LA', 'NY']"     | Array of strings - items in dropdown       |
+| picked        | None/REQUIRED    | :picked="itemPicked"      | Callback function when item selected       |
+| selected      | ""               | :selected="myCity"        | Currently selected state item              |
+| options       | See Below        | :options="{}" see below   | Object containing full options             |
+
+### options prop
+
+This component was build to be customized. Almost fully. Pass option object to :option prop. 
+
+| Option              | Default / Required  | Description                                                   |
+| ------------------- |:-------------------:| -------------------------------------------------------------:|
+| height              | REQUIRED            | The height of the input container. Needed for offset          |
+| width               | REQUIRED            | The width of the input container. Needed for offset           |
+| outerContainerClass | .dropdown-container | Class to be used for the outermost container                  |
+| inputClass          | .input-box          | Class to be used for the input element                        |
+| dropdownClass       | .dropdown-inner     | Class to be used for the dropdown container                   |
+| itemContainerClass  | .item               | Class to be used for the item wrappers inside the dropdown    |
+| activeItemClass     | .active             | Class to be used for the currently selected Item              |
+| nonActiveItemClass  | .non-active         | Class to be used for non-active items                         |
+| transitionName      | slide-fade          | Name of the trasition to be used                              |
+| outerContainerStyle | ""                  | Inline styling for outermost container                        |
+| inputStyle          | ""                  | Inline styling for input box                                  |
+| dropdownStyle       | ""                  | Inline styling for dropdown container                         |
+| itemContainerStyle  | ""                  | Inline styling for item wrappers inside dropdown              |
+| activeItemStyle     | ""                  | Inline styling for the currently selected item                |
+| nonActiveItemStyle  | ""                  | Inline styling for non-active items                           |
+
+> Not Complete, WIP
 
 # Example
 
