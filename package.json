@@ -1,7 +1,7 @@
 {
   "name": "vue-input-dropdown",
   "description": "A simple to use, highly customizable input dropdown component for Vue",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": {
     "name": "cgberlin",
     "email": "codyberlin@gmail.com"
