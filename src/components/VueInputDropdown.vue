@@ -1,6 +1,6 @@
 
 <template>
-  <div v-on-clickaway="closePicker" :class="[outerContainerClass]" :style="options['outerContainerStyle']">
+  <div v-on-clickaway="closePicker" :class="[outerContainerClass]" :style="outerContainerStyle">
     <input :style="[{height:options['height'],width:options['width']},options['inputStyle']]"
            :class="[inputClass]"
            :autocomplete="options['autocomplete']"
@@ -69,49 +69,54 @@
         'selectedItem': {
           handler: function(to, from) {
             let { items } = this
-            this.itemList = items.filter(item => { return ~item.toLowerCase().indexOf(to.toLowerCase())})
+            if (to) this.itemList = items.filter(item => { return ~item.toLowerCase().indexOf(to.toLowerCase())})
           }
         }
     },
     computed: {
+      outerContainerStyle() {
+        let { options } = this
+        if (options && options['outerContainerStyle']) return options['outerContainerStyle']
+        else return ''
+      },
       outerContainerClass() {
         let { options } = this
-        if (options['outerContainerClass']) return options['outerContainerClass']
+        if (options && options['outerContainerClass']) return options['outerContainerClass']
         else return 'dropdown-container'
       },
       inputClass() {
         let { options } = this
-        if (options['inputClass']) return options['inputClass']
+        if (options && options['inputClass']) return options['inputClass']
         else return 'input-box'
       },
       dropdownClass() {
         let { options } = this
-        if (options['dropdownClass']) return options['dropdownClass']
+        if (options && options['dropdownClass']) return options['dropdownClass']
         else return 'dropdown-inner'
       },
       itemContainerClass() {
         let { options } = this
-        if (options['itemContainerClass']) return options['itemContainerClass']
+        if (options && options['itemContainerClass']) return options['itemContainerClass']
         else return 'item'
       },
       activeClass() {
         let { options } = this
-        if (options['activeClass']) return options['activeClass']
+        if (options && options['activeClass']) return options['activeClass']
         else return 'active'
       },
       activeItemClass() {
         let { options } = this
-        if (options['activeItemClass']) return options['activeItemClass']
+        if (options && options['activeItemClass']) return options['activeItemClass']
         else return 'active'
       },
       nonActiveItemClass() {
         let { options } = this
-        if (options['nonActiveItemClass']) return options['nonActiveItemClass']
+        if (options && options['nonActiveItemClass']) return options['nonActiveItemClass']
         else return 'non-active'
       },
       transitionName() {
         let { options } = this
-        if (options['transitionName']) return options['transitionName']
+        if (options && options['transitionName']) return options['transitionName']
         else return 'slide-fade'
       }
     },
@@ -148,7 +153,7 @@
           return  
         }
         if (len <= 0 || options['forceSelect']) return
-        itemList = items.filter(item => { return ~item.toLowerCase().indexOf(selectedItem.toLowerCase())})
+        if (selectedItem) itemList = items.filter(item => { return ~item.toLowerCase().indexOf(selectedItem.toLowerCase())})
         if (itemList.length <= 0) this.selectedItem = ""
         else {
           this.itemList = items
