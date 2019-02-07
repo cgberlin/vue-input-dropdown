@@ -1,17 +1,22 @@
 
 <template>
   <div v-on-clickaway="closePicker" :class="[outerContainerClass]" :style="outerContainerStyle">
-    <input :style="[{height:options['height'],width:options['width']},options['inputStyle']]"
-           :class="[inputClass]"
-           :autocomplete="options['autocomplete']"
-           @blur="inputBlurCheck"
-           @click="inputClicked"
-           v-model="selectedItem" 
-           :placeholder="options['placeholder']||'Select'"
-          />
+    <div :style="{width:options['width']}">
+      <input :style="[{height:options['height'],width:options['width']},options['inputStyle']]"
+            :class="[inputClass]"
+            :autocomplete="options['autocomplete']"
+            @blur="inputBlurCheck"
+            @click="inputClicked"
+            v-model="selectedItem" 
+            :placeholder="options['placeholder']||'Select'"
+            />
+    </div>
     <transition :name="transitionName">
       <div v-if="isOpen" 
-           :style="[{top:y,left:x,width:options['width'], 'margin-top':options['height']},options['dropdownStyle']]" 
+           :style="[{top:y,left:x,width:options['width'], 
+                    'margin-top':options['height'], 
+                    'overflow-y':maxHeightExists, 
+                    'max-height':options['maxHeight'] || auto},options['dropdownStyle']]" 
            :class="[dropdownClass]"
           >
         <div v-for="(item, index) in itemList" 
@@ -23,13 +28,13 @@
           <!-- necessary to do v-if for dynamic active class and styles -->
           <p v-if="isSelected(item)" 
              :class="[activeItemClass]"
-             :style="options['activeItemStyle']"
+             :style="[{width:options['width']},options['activeItemStyle']]"
             >
               {{item}}
           </p>
           <p v-else 
              :class="[nonActiveItemClass]"
-             :style="options['nonActiveItemStyle']"  
+             :style="[{width:options['width']},options['nonActiveItemStyle']]"
             >
               {{item}}
           </p>
@@ -118,6 +123,11 @@
         let { options } = this
         if (options && options['transitionName']) return options['transitionName']
         else return 'slide-fade'
+      },
+      maxHeightExists() {
+        let { options } = this
+        console.log(options['maxHeight'])
+        if (options && options['maxHeight']) return 'scroll'
       }
     },
     methods: {
@@ -169,14 +179,16 @@
   }
 </script>
 
-<style scoped>
+<style>
 .dropdown-container, 
 .input-box, 
 .item, 
 .active, 
 .non-active {
-  width: 100%;
   height: 100%;
+}
+input:focus{
+  outline: none;
 }
 .dropdown-container, 
 .dropdown-inner {
@@ -194,6 +206,9 @@
 .input-box {
   padding-left: 1rem;
   padding-right: 1rem;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box; 
 }
 .item {
   height: auto;
@@ -204,7 +219,9 @@
 }
 .active, 
 .non-active {
-  padding: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin: 0;
 }
 .active {
   background-color: lightgray;
