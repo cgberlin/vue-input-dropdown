@@ -103,6 +103,7 @@ This component was build to be customized. Almost fully. Pass option object to :
 | ------------------- |:-------------------:| -------------------------------------------------------------:|
 | height              | REQUIRED            | The height of the input container. Needed for offset          |
 | width               | REQUIRED            | The width of the input container. Needed for offset           |
+| maxHeight           | auto                | The max height of the dropdown. Auto uses scroll on overflow  |
 | outerContainerClass | .dropdown-container | Class to be used for the outermost container                  |
 | inputClass          | .input-box          | Class to be used for the input element                        |
 | dropdownClass       | .dropdown-inner     | Class to be used for the dropdown container                   |
@@ -120,8 +121,8 @@ This component was build to be customized. Almost fully. Pass option object to :
 > Not Complete, WIP
 
 # Example
-
-> TODO
+![](example.gif)
+[Link to the example](https://github.com/cgberlin/vue-input-dropdown/blob/master/examples/src/App.vue)
 
 ---
 

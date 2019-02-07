@@ -1,6 +1,6 @@
-# {{ name }}
+#  Vue Input Example / Test Env
 
-> {{ description }}
+> Example and dev environment for extension
 
 ## Build Setup
 
