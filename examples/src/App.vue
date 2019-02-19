@@ -19,6 +19,16 @@
         :picked="picked"
       />
     </div>
+    <img src="./assets/logo.png">
+    <img src="./assets/logo.png">
+    <img src="./assets/logo.png">
+    <img src="./assets/logo.png">
+    <img src="./assets/logo.png">
+    <img src="./assets/logo.png">
+    <img src="./assets/logo.png">
+    <img src="./assets/logo.png">
+    <img src="./assets/logo.png">
+    
   </div>
 </template>
 

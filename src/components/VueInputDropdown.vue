@@ -126,7 +126,6 @@
       },
       maxHeightExists() {
         let { options } = this
-        console.log(options['maxHeight'])
         if (options && options['maxHeight']) return 'scroll'
       }
     },
@@ -173,7 +172,7 @@
       },
       getPos(el) {
         let rect = el.getBoundingClientRect()
-        return { x: rect.left, y: rect.top }
+        return { x: rect.left + window.x, y: rect.top + window.y }
       },
     }
   }
