@@ -1,3 +1,6 @@
+### 1/28/2021
+This repo/little library still gets some downloads, and I still use it in projects here and there. I am not actively updating/adding features unless something breaks for me, but am still checking pull requests etc. if someone needs/wants to update something. 
+
 # vue-input-dropdown
 
 [![npm](https://img.shields.io/npm/v/vue-input-dropdown.svg) ![npm](https://img.shields.io/npm/dm/vue-input-dropdown.svg)](https://www.npmjs.com/package/vue-input-dropdown)
